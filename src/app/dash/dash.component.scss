@@ -17,7 +17,7 @@ $write: #FFF;
   justify-content: center;
   align-items: center;
   .header {
-    width: 93%;
+    width: 92%;
   }
   .dash {
     margin: 20px 0 0 50px;
@@ -30,8 +30,19 @@ $write: #FFF;
     @include scroolStyle();
     .cards {
       display: flex;
-      margin-right: 30px;
+      margin: 10px 20px 0 0;
     }
   }
- 
+}
+
+@include mobile {
+  .dash-container {
+    .dash {
+      justify-content: center;
+      .cards {
+        display: flex;
+        margin: 20px 15px 20px 0;
+      }
+    }
+  }
 }

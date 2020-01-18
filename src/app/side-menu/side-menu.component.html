@@ -11,8 +11,9 @@
   </ul>
   <div class="items-plus">
     <i class="fas fa-cloud-download-alt"></i>
-    <button class="btn btn-add">
+    <button class="btn btn-add" (click)="openModal = true">
       <i class="fas fa-plus"></i>
     </button>
   </div>
 </div>
+<ctm-modal [open]="openModal" (senClosed)="openModal = $event"></ctm-modal>

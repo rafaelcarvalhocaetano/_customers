@@ -36,3 +36,16 @@
     }
   }
 }
+
+@include mobile {
+  .dash-header {
+    margin-top: 20px;
+    .select-options {
+      display: flex;
+      flex-direction: column;
+      .dash-title {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

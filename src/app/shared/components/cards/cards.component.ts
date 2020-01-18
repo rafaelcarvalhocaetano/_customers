@@ -17,9 +17,8 @@ export class CardsComponent {
 
   @Output()
   public clickEmitter = new EventEmitter<any>();
-  @Output()
-  public closeModal = new EventEmitter<boolean>();
 
+  public closeModal = new EventEmitter<boolean>();
   public showModal = false;
 
   public actions = [

@@ -4,16 +4,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CardsComponent } from './components/cards/cards.component';
 import { DashHeaderComponent } from './components/dash-header/dash-header.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
     CardsComponent,
-    DashHeaderComponent
+    DashHeaderComponent,
+    ModalComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  entryComponents: [
+    ModalComponent
   ],
   exports: [
     CommonModule,
@@ -21,7 +28,8 @@ import { DashHeaderComponent } from './components/dash-header/dash-header.compon
     FormsModule,
     ReactiveFormsModule,
     CardsComponent,
-    DashHeaderComponent
+    DashHeaderComponent,
+    ModalComponent
   ]
 })
 export class SharedModule { }

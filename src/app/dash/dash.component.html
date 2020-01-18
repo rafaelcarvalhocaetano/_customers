@@ -1,4 +1,7 @@
-<div class="dash-container">
+<div class="dash-container" *ngIf="loader">
+  <div class="loader"></div>
+</div>
+<div class="dash-container" *ngIf="!loader">
   <div class="header">
     <ctm-dash-header></ctm-dash-header>
   </div>
@@ -6,5 +9,6 @@
     <div class="cards" *ngFor="let card of cards">
       <ctm-cards [card]="card" (clickEmitter)="clickEvent($event)"></ctm-cards>
     </div>
-  </div>
+  </div> 
 </div>
+<ctm-modal [open]="openEditCard" [optionsEdit]="actions" (senClosed)="openEditCard = $event"></ctm-modal>

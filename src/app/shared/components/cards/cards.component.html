@@ -17,7 +17,7 @@
 
   <div class="modal" *ngIf="showModal">
     <ul *ngFor="let action of actions">
-      <li (click)="clickEmitter.emit({data: action.id, uid: card.uuid}); showModal = false">
+      <li (click)="clickEmitter.emit({operationType: action.id, uid: card.uuid}); showModal = false">
         <p>{{ action.action }}</p>
       </li>
     </ul>
