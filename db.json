@@ -1,0 +1,25 @@
+{
+  "dashboard": [
+    {
+      "id": 1,
+      "name": "Rafael 1"
+    },
+    {
+      "id": 2,
+      "name": "Rafael 2"
+    },
+    {
+      "id": 3,
+      "name": "Rafael 3"
+    }
+  ],
+  "login": [
+    {
+      "name": "Rafael Carvalho",
+      "password": "123123",
+      "email": "rapha.pse@gmail",
+      "uuid": "8a0c8921-90b2-44c1-81a4-d021cdfb006f",
+      "role": "admin"
+    }
+  ]
+}

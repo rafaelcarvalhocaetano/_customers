@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashComponent } from './dash.component';
 import { SharedModule } from '../shared/shared.module';
+import { SideMenuComponent } from '../side-menu/side-menu.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [DashComponent],
+  declarations: [
+    DashComponent
+  ],
   imports: [
     SharedModule,
     RouterModule.forChild(routes)

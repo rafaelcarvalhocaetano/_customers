@@ -1,0 +1,18 @@
+<div class="sidenav">
+  <div class="icon-logo">
+    <i class="far fa-dot-circle"></i>
+  </div>
+  <ul class="ctm-list">
+    <li *ngFor="let item of listMenu">
+      <a [routerLink]="item.router" routerLinkActive="icc">
+        <i [class]="item.icon"></i>
+      </a>
+    </li>
+  </ul>
+  <div class="items-plus">
+    <i class="fas fa-cloud-download-alt"></i>
+    <button class="btn btn-add">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+</div>

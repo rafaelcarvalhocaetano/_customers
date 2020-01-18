@@ -3,14 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CardsComponent } from './components/cards/cards.component';
-import { SideMenuComponent } from './components/side-menu/side-menu.component';
-
-
 
 @NgModule({
   declarations: [
-    CardsComponent,
-    SideMenuComponent
+    CardsComponent
   ],
   imports: [
     CommonModule,
@@ -22,8 +18,7 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    CardsComponent,
-    SideMenuComponent
+    CardsComponent
   ]
 })
 export class SharedModule { }
