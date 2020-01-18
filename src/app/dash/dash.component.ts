@@ -88,4 +88,10 @@ export class DashComponent {
     }
   ];
 
+
+  public clickEvent(event) {
+  console.log("TCL: DashComponent -> clickEvent -> event", event)
+
+  }
+
 }

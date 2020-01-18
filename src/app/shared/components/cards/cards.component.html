@@ -5,7 +5,7 @@
   <div class="card-body">
     <div class="item-menu">
       <p>{{ card.typeClient.toUpperCase() }}</p>
-      <button class="btn-action">
+      <button class="btn-action" (click)="openModal()">
         <i class="fas fa-ellipsis-h"></i>
       </button>
     </div>
@@ -13,5 +13,13 @@
       <p class="name">{{ card.name }}</p>
       <p class="first-name">{{ card.firstName }}</p>
     </div>
+  </div>
+
+  <div class="modal" *ngIf="showModal">
+    <ul *ngFor="let action of actions">
+      <li (click)="clickEmitter.emit({data: action.id, uid: card.uuid}); showModal = false">
+        <p>{{ action.action }}</p>
+      </li>
+    </ul>
   </div>
 </div>
