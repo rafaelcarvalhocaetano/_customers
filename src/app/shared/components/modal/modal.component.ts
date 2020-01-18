@@ -21,8 +21,8 @@ export class ModalComponent implements OnInit {
   public form: FormGroup;
 
   public options = [
-    { description: 'lead'},
-    { description: 'client'}
+    { description: 'Lead'},
+    { description: 'Client'}
   ];
 
   constructor(
