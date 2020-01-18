@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CardsComponent } from './components/cards/cards.component';
+import { DashHeaderComponent } from './components/dash-header/dash-header.component';
 
 @NgModule({
   declarations: [
-    CardsComponent
+    CardsComponent,
+    DashHeaderComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { CardsComponent } from './components/cards/cards.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    CardsComponent
+    CardsComponent,
+    DashHeaderComponent
   ]
 })
 export class SharedModule { }

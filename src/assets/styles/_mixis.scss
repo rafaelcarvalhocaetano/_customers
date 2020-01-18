@@ -1,0 +1,29 @@
+@import './colors';
+
+@mixin scroolStyle {
+  &::-webkit-scrollbar-track {
+    background-color: $primary;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+    background: $icon_primary;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $icon_primary;
+  }
+}
+
+@mixin wh {
+  width: 30px;
+  height: 30px;
+  background-color: $card;
+  color: $font_color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;  
+  a {
+    font-size: 14px;
+  }
+}

@@ -1,13 +1,7 @@
-$primary: #1C1B21;
-$icon_primary: #4b4a52;
-$side_nav: #2a2931;
-$card: #27262e;
-$border_card: #2f2e35;
-$font_color: #f9f8fa;
-$write: #FFF;
+@import '../../../../assets/styles/colors';
 
 .card {
-  width: 160px;
+  width: 150px;
   height: 220px;
   background-color: $card;
   display: flex;
@@ -16,13 +10,14 @@ $write: #FFF;
     width: 8px;
     height: 220px;
     background-color: $border_card;
+    border-radius: 3px 0 0 3px;
     p {
       margin-top: 28px;
       width: 3px;
       height: 20px;
       background-color: rgb(255, 208, 0);
       border-radius: 0 2px 2px 0;
-      letter-spacing: 10px;
+      letter-spacing: 5px;
     }
     .clr {
       background-color: rgb(25, 250, 239);
@@ -66,7 +61,7 @@ $write: #FFF;
       }
       .first-name {
         margin-top: 15px;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 600;
         color: $font_color;
         letter-spacing: 1px;
