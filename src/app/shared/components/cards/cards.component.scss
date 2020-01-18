@@ -20,8 +20,12 @@ $write: #FFF;
       margin-top: 28px;
       width: 3px;
       height: 20px;
-      background-color: #FFF;
+      background-color: rgb(255, 208, 0);
       border-radius: 0 2px 2px 0;
+      letter-spacing: 10px;
+    }
+    .clr {
+      background-color: rgb(25, 250, 239);
     }
   }
   .card-body {
@@ -29,7 +33,7 @@ $write: #FFF;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 30px 10px;
+    padding: 30px 12px;
     .item-menu {
       display: flex;
       justify-content: space-between;
@@ -37,31 +41,35 @@ $write: #FFF;
       p {
         font-size: 16px;
         font-weight: bold;
-        color: #FFF;
+        color: $font_color;
         text-align: center;
+        letter-spacing: 5px;
       }
       .btn-action {
         border: none;
         background-color: transparent;
-        color: #FFF;
+        color: $font_color;
         cursor: pointer;
         &:focus {
           outline: none;
         }
+        color: $icon_primary;
       }
     }
     .card-footer {
       .name {
-        color: #FFF;
+        color: $font_color;
         opacity: 0.5;
         font-weight: 600;
         font-size: 16px;
+        letter-spacing: 2px;
       }
       .first-name {
         margin-top: 15px;
         font-size: 16px;
         font-weight: 600;
-        color: #FFF;
+        color: $font_color;
+        letter-spacing: 1px;
       }
     }
   }
