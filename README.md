@@ -9,4 +9,4 @@
 <img src="https://github.com/rafaelcarvalhocaetano/Customers/blob/master/src/assets/img/dash-edit.png" style="width: 300px; heigth: 200px">
 
 ### Application IMG 002:
-<img src="https://github.com/rafaelcarvalhocaetano/Customers/blob/master/src/assets/img/dash-edit.png" style="width: 300px; heigth: 200px">
+<img src="https://github.com/rafaelcarvalhocaetano/Customers/blob/master/src/assets/img/dash.png" style="width: 300px; heigth: 200px">
