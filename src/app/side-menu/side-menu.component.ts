@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DashService } from '../core/services/dash-service/dash.service';
 
 @Component({
   selector: 'ctm-side-menu',

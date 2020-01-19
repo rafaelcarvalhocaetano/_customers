@@ -1,178 +1,52 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CardOptions } from '../core/models/card';
+
+import { Customer } from '../core/models/customer';
+import { DashService } from '../core/services/dash-service/dash.service';
 
 @Component({
   selector: 'ctm-dash',
   templateUrl: './dash.component.html',
   styleUrls: ['./dash.component.scss']
 })
-export class DashComponent {
+export class DashComponent implements OnInit {
 
   public openEditCard = false;
   public loader = false;
   public actions: CardOptions;
-  public cards = [
-    {
-      uuid: '1232kjkj399-32882730-0h231--3230',
-      color: 1,
-      typeClient: 'lead',
-      name: 'Rafael',
-      firstName: 'Carvalho Caetano'
-    },
-    {
-      uuid: '1232kjkj399-32882730-30',
-      color: 2,
-      typeClient: 'client',
-      name: 'Rosemeire',
-      firstName: 'Ribeiro Braz'
-    },
-    {
-      uuid: '4rt616g-9---9-9-9-923812321',
-      color: 1,
-      typeClient: 'lead',
-      name: 'Vitor',
-      firstName: 'Ribeiro Caetano'
-    },
-    {
-      uuid: '4rt616g-9923812321',
-      color: 1,
-      typeClient: 'client',
-      name: 'Heitor',
-      firstName: 'Ribeiro Caetano'
-    },
-    {
-      uuid: '1232kjkj399-32882730-0h231--3230',
-      color: 1,
-      typeClient: 'lead',
-      name: 'Rafael',
-      firstName: 'Carvalho Caetano'
-    },
-    {
-      uuid: '1232kjkj399-32882730-30',
-      color: 2,
-      typeClient: 'client',
-      name: 'Rosemeire',
-      firstName: 'Ribeiro Braz'
-    },
-    {
-      uuid: '4rt616g-9---9-9-9-923812321',
-      color: 1,
-      typeClient: 'lead',
-      name: 'Vitor',
-      firstName: 'Ribeiro Caetano'
-    },
-    {
-      uuid: '4rt616g-9923812321',
-      color: 1,
-      typeClient: 'client',
-      name: 'Heitor',
-      firstName: 'Ribeiro Caetano'
-    },
-    {
-      uuid: '1232kjkj399-32882730-30',
-      color: 2,
-      typeClient: 'client',
-      name: 'Rosemeire',
-      firstName: 'Ribeiro Braz'
-    },
-    {
-      uuid: '4rt616g-9---9-9-9-923812321',
-      color: 1,
-      typeClient: 'lead',
-      name: 'Vitor',
-      firstName: 'Ribeiro Caetano'
-    },
-    {
-      uuid: '4rt616g-9923812321',
-      color: 1,
-      typeClient: 'client',
-      name: 'Heitor',
-      firstName: 'Ribeiro Caetano'
-    },
-    {
-      uuid: '1232kjkj399-32882730-0h231--3230',
-      color: 1,
-      typeClient: 'lead',
-      name: 'Rafael',
-      firstName: 'Carvalho Caetano'
-    },
-    {
-      uuid: '1232kjkj399-32882730-30',
-      color: 2,
-      typeClient: 'client',
-      name: 'Rosemeire',
-      firstName: 'Ribeiro Braz'
-    },
-    {
-      uuid: '4rt616g-9---9-9-9-923812321',
-      color: 1,
-      typeClient: 'lead',
-      name: 'Vitor',
-      firstName: 'Ribeiro Caetano'
-    },
-    {
-      uuid: '4rt616g-9923812321',
-      color: 1,
-      typeClient: 'client',
-      name: 'Heitor',
-      firstName: 'Ribeiro Caetano'
-    },
-    {
-      uuid: '1232kjkj399-32882730-0h231--3230',
-      color: 1,
-      typeClient: 'lead',
-      name: 'Rafael',
-      firstName: 'Carvalho Caetano'
-    },
-    {
-      uuid: '1232kjkj399-32882730-30',
-      color: 2,
-      typeClient: 'client',
-      name: 'Rosemeire',
-      firstName: 'Ribeiro Braz'
-    },
-    {
-      uuid: '4rt616g-9---9-9-9-923812321',
-      color: 1,
-      typeClient: 'lead',
-      name: 'Vitor',
-      firstName: 'Ribeiro Caetano'
-    },
-    {
-      uuid: '4rt616g-9923812321',
-      color: 1,
-      typeClient: 'client',
-      name: 'Heitor',
-      firstName: 'Ribeiro Caetano'
-    },
-    {
-      uuid: '1232kjkj399-32882730-30',
-      color: 2,
-      typeClient: 'client',
-      name: 'Rosemeire',
-      firstName: 'Ribeiro Braz'
-    },
-    {
-      uuid: '4rt616g-9---9-9-9-923812321',
-      color: 1,
-      typeClient: 'lead',
-      name: 'Vitor',
-      firstName: 'Ribeiro Caetano'
-    },
-    {
-      uuid: '4rt616g-9923812321',
-      color: 1,
-      typeClient: 'client',
-      name: 'Heitor',
-      firstName: 'Ribeiro Caetano'
-    }
-  ];
+  public cards: Customer[] = [];
+  public id: string;
+
+  constructor(
+    private service: DashService
+  ) {  }
+
+  ngOnInit(): void {
+    this.listCustomers();
+  }
 
   public clickEvent(data) {
-    if (data.operationType === 1) {
-      this.actions = data;
+    if (data.type === 1) {
       this.openEditCard = true;
+      this.id = data.id;
     }
+    if (data.type === 2) {
+      this.loader = true;
+      this.service.deleteCustomer(data.id).subscribe(() => {
+        this.listCustomers();
+        this.loader = false;
+      });
+    }
+  }
+
+  private listCustomers() {
+    this.loader = true;
+    this.service.findALlCustomer().subscribe(x => {
+      this.cards = x;
+    }, () => this.loader = false, () => this.loader = false);
+    this.service.getCustomer().subscribe(resp => {
+      this.cards = resp;
+    }, () => this.loader = false, () => this.loader = false);
   }
 
 }

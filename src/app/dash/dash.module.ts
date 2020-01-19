@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashComponent } from './dash.component';
 import { SharedModule } from '../shared/shared.module';
-import { SideMenuComponent } from '../side-menu/side-menu.component';
 
 const routes: Routes = [
   {

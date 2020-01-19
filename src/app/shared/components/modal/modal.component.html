@@ -28,7 +28,7 @@
       <div class="form-seleceted">
         <div *ngFor="let item of options">
           <div class="client">
-            <input type="radio" id="{{item.description}}" [value]="item.description" formControlName="user">
+            <input type="radio" id="{{item.description}}" [value]="item.description.toLowerCase()" formControlName="user">
             <label for="{{item.description}}">
               {{ item.description }}
             </label>

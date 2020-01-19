@@ -8,9 +8,9 @@ import { Component, Input, EventEmitter, Output, HostListener, ElementRef } from
 export class CardsComponent {
 
   @Input() card = {
-    uuid: null,
-    color: 1,
-    typeClient: null,
+    id: null,
+    color: null,
+    user: null,
     name: null,
     firstName: null
   };

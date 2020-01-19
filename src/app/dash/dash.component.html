@@ -11,4 +11,6 @@
     </div>
   </div> 
 </div>
-<ctm-modal [open]="openEditCard" [optionsEdit]="actions" (senClosed)="openEditCard = $event"></ctm-modal>
+<div *ngIf="openEditCard">
+  <ctm-modal [open]="openEditCard" [id]="id" (senClosed)="openEditCard = $event"></ctm-modal>
+</div>

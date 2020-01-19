@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { CardOptions } from 'src/app/core/models/card';
+
+import { DashService } from 'src/app/core/services/dash-service/dash.service';
+import { Customer } from 'src/app/core/models/customer';
 
 @Component({
   selector: 'ctm-modal',
@@ -10,13 +12,12 @@ import { CardOptions } from 'src/app/core/models/card';
 export class ModalComponent implements OnInit {
 
   @Input()
-  public open = true;
+  public open = false;
+
+  @Input() public id: string;
 
   @Output()
   public senClosed = new EventEmitter<boolean>();
-
-  @Input()
-  public optionsEdit?: CardOptions;  // uid | data
 
   public form: FormGroup;
 
@@ -26,16 +27,20 @@ export class ModalComponent implements OnInit {
   ];
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private service: DashService
   ) { }
 
   ngOnInit() {
     this.createForm();
+    this.updateForm();
   }
 
   public createForm() {
     this.form = this.formBuilder.group({
+      id: [null],
       name: [null],
+      colorId: [null],
       firstName: [null],
       phone: [null],
       email: [null, [Validators.email]],
@@ -43,9 +48,32 @@ export class ModalComponent implements OnInit {
     });
   }
 
+  private updateForm() {
+    this.service.findById(this.id).subscribe(resp => {
+      this.form.patchValue({
+        id: resp.id,
+        name: resp.name,
+        colorId: resp.colorId,
+        firstName: resp.firstName,
+        phone: resp.phone,
+        email: resp.email,
+        user: resp.user.toLowerCase()
+      });
+    });
+  }
+
   public submitForm() {
-    console.log('FORM ', this.form.value);
-    this.senClosed.emit(false);
+    if (this.id) {
+      this.service.updateCustomer(this.form.value).subscribe(() => {
+        this.senClosed.emit(false);
+        this.service.findALlCustomer().subscribe(x => this.service.sendCustomer(x));
+      });
+    } else {
+      this.service.createCustomer(this.form.value).subscribe(() => {
+        this.senClosed.emit(false);
+        this.service.findALlCustomer().subscribe(x => this.service.sendCustomer(x));
+      });
+    }
   }
 
 }

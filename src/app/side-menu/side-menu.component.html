@@ -16,4 +16,6 @@
     </button>
   </div>
 </div>
-<ctm-modal [open]="openModal" (senClosed)="openModal = $event"></ctm-modal>
+<div *ngIf="openModal">
+  <ctm-modal [open]="openModal" [id]="null" (senClosed)="openModal = $event"></ctm-modal>
+</div>

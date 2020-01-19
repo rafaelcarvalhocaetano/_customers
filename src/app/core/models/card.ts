@@ -1,4 +1,4 @@
 export interface CardOptions {
-  uid: string;
-  operationType: number;
+  id: string;
+  type: number;
 }
