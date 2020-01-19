@@ -49,17 +49,19 @@ export class ModalComponent implements OnInit {
   }
 
   private updateForm() {
-    this.service.findById(this.id).subscribe(resp => {
-      this.form.patchValue({
-        id: resp.id,
-        name: resp.name,
-        colorId: resp.colorId,
-        firstName: resp.firstName,
-        phone: resp.phone,
-        email: resp.email,
-        user: resp.user.toLowerCase()
+    if (this.id) {
+      this.service.findById(this.id).subscribe(resp => {
+        this.form.patchValue({
+          id: resp.id,
+          name: resp.name,
+          colorId: resp.colorId,
+          firstName: resp.firstName,
+          phone: resp.phone,
+          email: resp.email,
+          user: resp.user.toLowerCase()
+        });
       });
-    });
+    }
   }
 
   public submitForm() {
