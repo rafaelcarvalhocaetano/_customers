@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'ctm-login',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  public form: FormGroup;
+  public showFilter = false;
 
   public listTemperature = [
     {id: 1, name: 'Quente', icon: 'hot'},
@@ -18,10 +21,27 @@ export class LoginComponent implements OnInit {
     {id: 2, name: 'Amarela (à vencer)', icon: 'dot-yellow'},
     {id: 3, name: 'Vermelha (vencida)', icon: 'dot-alert'}
   ];
-  
-  constructor() { }
+
+  constructor(
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
+    this.initForm();
+  }
+
+  private initForm() {
+    this.form = this.fb.group({
+      temp: [],
+      late: [],
+      is_favorite: [],
+      is_incorporation: [],
+      is_not_incorporation: []
+    });
+  }
+
+  public showFilterAction() {
+    this.showFilter = !this.showFilter;
   }
 
 

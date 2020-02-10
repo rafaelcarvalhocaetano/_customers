@@ -1,0 +1,12 @@
+<button class="selected" (click)="actioDropDown()">
+  <p class="btn-text">{{ text }}</p>
+  <img src="../../../../assets/svgs/arrow_down.svg" class="icon-arrow" [ngClass]="{'icon-revert': showDropDown, 'icon-trt': !showDropDown}" alt="icon">
+</button>
+<ul class="dropdown-list" *ngIf="showDropDown">
+  <li *ngFor="let item of listTemperature">
+    <a (click)="select(item.name)">
+      <img src="../../assets/svgs/{{item.icon}}.svg" alt="{{item.name}}">
+      <p>{{ item.name }}</p>
+    </a>
+  </li> 
+</ul>

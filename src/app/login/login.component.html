@@ -10,10 +10,10 @@
         </button>
       </div>
       <div class="dnd-itens-filter">
-        <button class="btn-filter">
+        <button class="btn-filter" (click)="showFilterAction()">
           <img src="../../assets/svgs/funnel.svg" alt="Funnel">
         </button>
-        <img class="dnd-dot-alert" src="../../assets/svgs/dot-alert.svg" alt="Alert">
+        <img class="dnd-dot-alert" src="../../assets/svgs/dot-alert.svg" alt="Alert" *ngIf="true">
       </div>
     </div>
     <!-- <lib-button-secondary>Cadastrar fac</lib-button-secondary> -->
@@ -21,7 +21,7 @@
 
 
   <!-- FILTER -->
-  <form class="more-filter">
+  <form class="more-filter" *ngIf="true">
     <div class="container-form">
       <div class="select-filter">
         <!-- <app-dropdown-button
@@ -36,6 +36,7 @@
             </li> 
           </ul>
         </app-dropdown-button> -->
+        <ctm-select-options></ctm-select-options>
       </div>
       <div class="select-filter">
         <!-- <app-dropdown-button
@@ -50,6 +51,8 @@
             </li>
           </ul>
         </app-dropdown-button> -->
+        <ctm-select-options></ctm-select-options>
+
       </div>
       
       <ul class="list-checked">

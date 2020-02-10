@@ -8,13 +8,15 @@ import { CardsComponent } from './components/cards/cards.component';
 import { DashHeaderComponent } from './components/dash-header/dash-header.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { SelectOptionsComponent } from './components/select-options/select-options.component';
 
 @NgModule({
   declarations: [
     CardsComponent,
     DashHeaderComponent,
     ModalComponent,
-    LoaderComponent
+    LoaderComponent,
+    SelectOptionsComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     ReactiveFormsModule,
     CardsComponent,
     DashHeaderComponent,
-    ModalComponent
+    ModalComponent,
+    SelectOptionsComponent
   ]
 })
 export class SharedModule { }
