@@ -1,1 +1,81 @@
-<h1>Login</h1>
+<div class="container-filter">
+
+  <!-- BUSCA SUPERIOR -->
+  <div class="dnd-filter">
+    <div class="dnd-element">
+      <div class="dnd-input">
+        <input type="text" class="dnd-input-control" id="dnd-search" name="dnd-search" placeholder="Busca">
+        <button class="btn-search">
+          <img src="../../assets/svgs/lopa.svg" alt="Lopa">
+        </button>
+      </div>
+      <div class="dnd-itens-filter">
+        <button class="btn-filter">
+          <img src="../../assets/svgs/funnel.svg" alt="Funnel">
+        </button>
+        <img class="dnd-dot-alert" src="../../assets/svgs/dot-alert.svg" alt="Alert">
+      </div>
+    </div>
+    <!-- <lib-button-secondary>Cadastrar fac</lib-button-secondary> -->
+  </div>
+
+
+  <!-- FILTER -->
+  <form class="more-filter">
+    <div class="container-form">
+      <div class="select-filter">
+        <!-- <app-dropdown-button
+        [isOpen]="false" 
+        [label]="'Temperatura'">
+          <ul class="dropdown-list">
+            <li *ngFor="let item of listTemperature">
+              <a>
+                <img src="../../assets/svgs/{{item.icon}}.svg" alt="{{item.name}}">
+                <p>{{ item.name }}</p>
+              </a>
+            </li> 
+          </ul>
+        </app-dropdown-button> -->
+      </div>
+      <div class="select-filter">
+        <!-- <app-dropdown-button
+        [isOpen]="false" 
+        [label]="'Vencimento'">
+          <ul class="dropdown-list">
+            <li *ngFor="let item of listChanger">
+              <a>
+                <img src="../../assets/svgs/{{item.icon}}.svg" alt="{{item.name}}">
+                <p>{{ item.name }}</p>
+              </a>
+            </li>
+          </ul>
+        </app-dropdown-button> -->
+      </div>
+      
+      <ul class="list-checked">
+        <li class="item-checked">
+          <a class="item-action">
+            <input type="checkbox" id="favorite" name="favorite">
+            <label for="favorite">Favoritas</label>
+          </a>
+        </li>
+        <li class="item-checked">
+          <a class="item-action">
+            <input type="checkbox" id="icpt" name="icpt">
+            <label for="icpt">É do incorporador</label>
+          </a>
+        </li>
+        <li class="item-checked">
+          <a class="item-action">
+            <input type="checkbox" class="nicpt" id="nicpt" name="nicpt">
+            <label for="nicpt">Não é do incorporador</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="filter-actions">
+      <!-- <lib-button-tertiary>Limpar</lib-button-tertiary>
+      <lib-button-primary>Filtrar</lib-button-primary> -->
+    </div>
+  </form>
+</div>

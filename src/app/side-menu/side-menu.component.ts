@@ -19,7 +19,7 @@ export class SideMenuComponent {
       icon: 'fas fa-briefcase'
     },
     {
-      router: '#',
+      router: '/filter',
       icon: 'fas fa-box'
     },
     {
