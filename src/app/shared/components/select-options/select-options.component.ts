@@ -1,4 +1,4 @@
-import { Component, HostListener, ElementRef } from '@angular/core';
+import { Component, HostListener, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'ctm-select-options',
@@ -7,17 +7,24 @@ import { Component, HostListener, ElementRef } from '@angular/core';
 })
 export class SelectOptionsComponent {
 
-  public showDropDown = false;
-  public text = 'Temperatura';
+  @Input()
+  public text = '';
 
-  public listTemperature = [
-    {id: 1, name: 'Quente', icon: 'hot'},
-    {id: 2, name: 'Morno', icon: 'warm'},
-    {id: 3, name: 'Frio', icon: 'cold'}
-  ];
+  @Input()
+  public changeLate = false;
+
+  @Input()
+  public listOptions = [];
+
+  @Output()
+  public sendChange = new EventEmitter<string>();
+
+  public showDropDown = false;
+  public listChange = ['(atualizada)', '(à vencer)', '(vencida)'];
 
   @HostListener('document:click', ['$event'])
   onClick(ev) {
+    ev.preventDefault();
     if (this.showDropDown) {
       if (!this.eRef.nativeElement.contains(ev.target)) {
         this.showDropDown = false;

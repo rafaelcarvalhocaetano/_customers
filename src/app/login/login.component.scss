@@ -66,6 +66,21 @@
         }
       }
     }
+
+    .btn-create {
+      width: 135px;
+      height: 44px;
+      background: #FFFFFF;
+      border: 1px solid #D6283D;
+      box-sizing: border-box;
+      border-radius: 7px;
+      color: #D6283D;
+      font-weight: bold;
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
+    }
   } 
 
   // SEARCH FILTER
@@ -155,6 +170,27 @@
     .filter-actions {
       display: flex;
       align-items: center;
+      .btn-filter {
+        width: 88px;
+        height: 44px;
+        background: #EB194B;
+        color: #FFF;
+        border-radius: 7px;
+        border: none;
+        cursor: pointer;
+        &:focus {
+          outline: none;
+        }
+      }
+      .btn-clear {
+        width: 88px;
+        height: 44px;
+        color: #EB194B;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+       @include opacity();
+      }
     }
     
   }

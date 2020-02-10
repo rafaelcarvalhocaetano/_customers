@@ -1,12 +1,12 @@
 <button class="selected" (click)="actioDropDown()">
   <p class="btn-text">{{ text }}</p>
-  <img src="../../../../assets/svgs/arrow_down.svg" class="icon-arrow" [ngClass]="{'icon-revert': showDropDown, 'icon-trt': !showDropDown}" alt="icon">
+  <img src="../../../../assets/svgs/arrow_down.svg" class="icon-arrow" [ngClass]="{'icon-revert': showDropDown}" alt="icon">
 </button>
 <ul class="dropdown-list" *ngIf="showDropDown">
-  <li *ngFor="let item of listTemperature">
-    <a (click)="select(item.name)">
+  <li *ngFor="let item of listOptions;let i = index">
+    <a (click)="select(item.name); sendChange.emit(item)">
       <img src="../../assets/svgs/{{item.icon}}.svg" alt="{{item.name}}">
-      <p>{{ item.name }}</p>
+      <p>{{ item.name }} {{ changeLate ? listChange[i] : null }}</p>
     </a>
   </li> 
 </ul>

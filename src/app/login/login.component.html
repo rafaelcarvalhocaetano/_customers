@@ -1,5 +1,8 @@
 <div class="container-filter">
 
+  <pre>
+    {{ form.value | json }}
+  </pre>
   <!-- BUSCA SUPERIOR -->
   <div class="dnd-filter">
     <div class="dnd-element">
@@ -13,64 +16,50 @@
         <button class="btn-filter" (click)="showFilterAction()">
           <img src="../../assets/svgs/funnel.svg" alt="Funnel">
         </button>
-        <img class="dnd-dot-alert" src="../../assets/svgs/dot-alert.svg" alt="Alert" *ngIf="true">
+        <img class="dnd-dot-alert" src="../../assets/svgs/dot-alert.svg" alt="Alert" *ngIf="validator()">
       </div>
     </div>
     <!-- <lib-button-secondary>Cadastrar fac</lib-button-secondary> -->
+    <button class="btn-create">Cadastrar fac</button>
   </div>
 
 
   <!-- FILTER -->
-  <form class="more-filter" *ngIf="true">
+  <form [formGroup]="form" class="more-filter" *ngIf="showFilter">
     <div class="container-form">
       <div class="select-filter">
-        <!-- <app-dropdown-button
-        [isOpen]="false" 
-        [label]="'Temperatura'">
-          <ul class="dropdown-list">
-            <li *ngFor="let item of listTemperature">
-              <a>
-                <img src="../../assets/svgs/{{item.icon}}.svg" alt="{{item.name}}">
-                <p>{{ item.name }}</p>
-              </a>
-            </li> 
-          </ul>
-        </app-dropdown-button> -->
-        <ctm-select-options></ctm-select-options>
-      </div>
-      <div class="select-filter">
-        <!-- <app-dropdown-button
-        [isOpen]="false" 
-        [label]="'Vencimento'">
-          <ul class="dropdown-list">
-            <li *ngFor="let item of listChanger">
-              <a>
-                <img src="../../assets/svgs/{{item.icon}}.svg" alt="{{item.name}}">
-                <p>{{ item.name }}</p>
-              </a>
-            </li>
-          </ul>
-        </app-dropdown-button> -->
-        <ctm-select-options></ctm-select-options>
+        <ctm-select-options
+          [changeLate]="false"
+          [text]="form.get('temp').value ? form.get('temp').value : 'Temperatura'"
+          [listOptions]="listTemperature"
+          (sendChange)="tempData($event)">
+        </ctm-select-options>
 
       </div>
-      
+      <div class="select-filter">
+        <ctm-select-options
+          [text]="form.get('late').value ? form.get('late').value : 'Vencimento'"
+          [changeLate]="true"
+          [listOptions]="listChanger"
+          (sendChange)="changeData($event)">
+        </ctm-select-options>
+      </div>
       <ul class="list-checked">
         <li class="item-checked">
-          <a class="item-action">
-            <input type="checkbox" id="favorite" name="favorite">
+          <a class="item-action" (click)="selectField('isFavorite')">
+            <input type="checkbox" id="favorite" name="favorite" formControlName="isFavorite">
             <label for="favorite">Favoritas</label>
-          </a>
+          </a>         
         </li>
         <li class="item-checked">
-          <a class="item-action">
-            <input type="checkbox" id="icpt" name="icpt">
+          <a class="item-action" (click)="selectIncorporator()">
+            <input type="checkbox" id="icpt" name="icpt" formControlName="corporator">
             <label for="icpt">É do incorporador</label>
           </a>
         </li>
         <li class="item-checked">
-          <a class="item-action">
-            <input type="checkbox" class="nicpt" id="nicpt" name="nicpt">
+          <a class="item-action" (click)="selectNotCorp()">
+            <input type="checkbox" class="nicpt" id="nicpt" name="nicpt" formControlName="notCorporator">
             <label for="nicpt">Não é do incorporador</label>
           </a>
         </li>
@@ -79,6 +68,8 @@
     <div class="filter-actions">
       <!-- <lib-button-tertiary>Limpar</lib-button-tertiary>
       <lib-button-primary>Filtrar</lib-button-primary> -->
+      <button class="btn-clear" (click)="resetForm()">Limpar</button>
+      <button class="btn-filter" (click)="search()">Filtrar</button>
     </div>
   </form>
 </div>
