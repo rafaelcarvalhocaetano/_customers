@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class SideMenuComponent {
 
-  public openModal = false;
+  public openModal = true;
 
   public listMenu = [
     {

@@ -23,17 +23,18 @@
     justify-content: space-between;
     background-color: #FFF;
     .options {
+      padding: 0 20px;
+      box-sizing: border-box;
       width: 100%;
       display: flex;
-      justify-content: flex-end;
       align-items: center;
+      justify-content: space-between;
       margin-top: 20px;
       .title {
-        margin-right: 16vw;
         font-size: 24px;
+        color: $side_nav;
       }
       .btn-closed {
-        margin-right: 1vw;
         border: none;
         background-color: transparent;
         color: $card;
@@ -56,9 +57,10 @@
           font-size: 18px;
           font-weight: bold;
           margin-bottom: 5px;
+          color: $side_nav;
         }
         input {
-          border: 1px solid $icon_primary;
+          border: 1px solid $border_card;
           padding: 8px 5px;
           border-radius: 3px;
           &:focus {
@@ -66,25 +68,45 @@
           }
         }
       }
-      .form-seleceted {
+      .form-selected {
         display: flex;
         flex-direction: row;
-        margin-right: 10px;
-        label {
-          font-size: 18px;
-          font-weight: bold;
-        }
-        input {
-          border: 1px solid $icon_primary;
-          padding: 8px 2px;
-          border: none;
-          &:focus {
-            outline: none;
-          }
-        }
         .client {
           margin-right: 20px;
-        }
+          .container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-left: 20px;
+            cursor: pointer;
+            font-size: 20px;
+            input {
+              position: absolute;
+              opacity: 0;
+              cursor: pointer;
+              &:checked ~ .checkmark {
+                background-color: #2196F3;
+              }
+              &:checked ~ .checkmark:after {
+                display: block;
+              }
+            }
+            .checkmark {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 20px;
+              width: 20px;
+              background-color: #eee;
+              border-radius: 50%;
+              &:after {
+                content: "";
+                position: absolute;
+                display: none;
+              }
+            }
+          }
+        }       
       }
     }
     .submited {
@@ -101,6 +123,7 @@
         font-size: 14px;
         font-weight: bold;
         cursor: pointer;
+        color: $side_nav;
         &:focus {
           outline: none;
         }

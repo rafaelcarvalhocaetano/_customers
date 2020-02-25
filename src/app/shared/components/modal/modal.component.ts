@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { DashService } from 'src/app/core/services/dash-service/dash.service';
-import { Customer } from 'src/app/core/models/customer';
 
 @Component({
   selector: 'ctm-modal',
