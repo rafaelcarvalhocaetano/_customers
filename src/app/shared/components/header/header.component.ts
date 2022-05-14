@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from "@angular/core";
 })
 export class HeaderComponent {
   @Output()
-  public onAction: EventEmitter<string> = new EventEmitter<string>();
+  public action = new EventEmitter<string>();
 
   public listActionDashboard: string[] = [
     "fas fa-plus",
@@ -18,6 +18,6 @@ export class HeaderComponent {
 
   selectAction(index: number): void {
     const listAction: string[] = ["create", "order", "settings", "search"];
-    this.onAction.emit(listAction[index]);
+    this.action.emit(listAction[index]);
   }
 }

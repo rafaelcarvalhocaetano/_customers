@@ -7,6 +7,7 @@ import { CardComponent } from "./components/card/card.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { ModalComponent } from "./components/modal/modal.component";
 import { SideMenuComponent } from "./components/side-menu/side-menu.component";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,13 @@ import { SideMenuComponent } from "./components/side-menu/side-menu.component";
     ModalComponent,
     SideMenuComponent,
   ],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule,
+  ],
   entryComponents: [ModalComponent],
   exports: [
     CommonModule,

@@ -4,7 +4,7 @@
 
 <div class="dash-container" *ngIf="!loader">
   <div class="header">
-    <ctm-dash-header (onAction)="onAction($event)"></ctm-dash-header>
+    <ctm-dash-header (action)="onAction($event)"></ctm-dash-header>
   </div>
   <div class="dash">
     <div class="cards" *ngFor="let card of this.cards$ | async">
