@@ -1,9 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { CardOptions } from "./models/card";
 
+import { CardOptions } from "./models/card";
 import { Customer } from "./models/customer";
-import { DashboardService } from "./service/dashboard.service";
 
 @Component({
   selector: "ctm-dash",
@@ -18,12 +17,12 @@ export class DashComponent implements OnInit {
 
   public cards$: Observable<Customer[]>;
 
-  constructor(private readonly _service: DashboardService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this._service.getAlbuns().subscribe((resp) => {
-      console.log(resp);
-    });
+    // this._service.getAlbuns().subscribe((resp) => {
+    //   console.log(resp);
+    // });
     this.listCustomers();
   }
 
@@ -33,15 +32,19 @@ export class DashComponent implements OnInit {
     }
     if (data.type === 2) {
       this.loader = true;
-      this._service.deleteCustomer(data.id).subscribe(() => {
-        this.listCustomers();
-        this.loader = false;
-      });
+      // this._service.deleteCustomer(data.id).subscribe(() => {
+      //   this.listCustomers();
+      //   this.loader = false;
+      // });
     }
   }
 
   private listCustomers() {
-    this.cards$ = this._service.getCustomer();
+    // this.cards$ = this._service.getCustomer();
+    // this.cards$ = this.store.select(selectCustomers);
+    // this.store.select(selectCustomers).subscribe((x) => {
+    //   console.log("🚀 ~ x", x);
+    // });
     this.loader = false;
   }
 
@@ -58,6 +61,6 @@ export class DashComponent implements OnInit {
   }
 
   private createCustomer(data): void {
-    this._service.createCustomer(data);
+    // this._service.createCustomer(data);
   }
 }

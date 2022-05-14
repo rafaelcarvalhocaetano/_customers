@@ -28,7 +28,7 @@ export class DashboardService {
 
   constructor(private http: HttpClient) {}
 
-  public getCustomer(): Observable<any> {
+  public getCustomer(): Observable<Customer[]> {
     return this.http.get<Customer[]>(this.uri);
   }
 
