@@ -1,7 +1,19 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { forkJoin, from, merge, Observable, of } from "rxjs";
-import { combineAll, map, mergeMap, switchMap, tap } from "rxjs/operators";
+import { forkJoin, from, merge, Observable, of, combineLatest } from "rxjs";
+import {
+  combineAll,
+  concatMap,
+  filter,
+  flatMap,
+  map,
+  mergeMap,
+  switchAll,
+  switchMap,
+  take,
+  tap,
+  toArray,
+} from "rxjs/operators";
 
 import { Customer } from "../models/customer";
 import { environment } from "../../../environments/environment";
@@ -36,17 +48,24 @@ export class DashboardService {
     return this.http.delete(`${this.uri}/${id}`);
   }
 
-  public getAlbuns(): Observable<any[]> {
-    return forkJoin([
-      this.http.get<any[]>(`${this.URL}/albums`),
-      this.http.get<any[]>(`${this.URL}/photos`),
-    ]).pipe(
-      map((collections) =>
-        collections[0].map((q) => ({
-          ...q,
-          photos: collections[1].filter((a) => q.id === a.albumId),
-        }))
+  getAlbuns(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.URL}/albums?userId=1`).pipe(
+      flatMap((albuns) =>
+        forkJoin(
+          albuns.map((albun) =>
+            this.getPhotos(albun.id).pipe(
+              map((d) => ({
+                ...albun,
+                photos: d,
+              }))
+            )
+          )
+        )
       )
     );
+  }
+
+  getPhotos(id): Observable<any[]> {
+    return this.http.get<any[]>(`${this.URL}/photos?albumId=${id}`);
   }
 }
