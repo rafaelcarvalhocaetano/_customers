@@ -2,12 +2,12 @@ import { Component, EventEmitter, Output } from "@angular/core";
 
 @Component({
   selector: "ctm-dash-header",
-  templateUrl: "./dash-header.component.html",
-  styleUrls: ["./dash-header.component.scss"],
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.scss"],
 })
-export class DashHeaderComponent {
+export class HeaderComponent {
   @Output()
-  public onAction = new EventEmitter<string>();
+  public onAction: EventEmitter<string> = new EventEmitter<string>();
 
   public listActionDashboard: string[] = [
     "fas fa-plus",

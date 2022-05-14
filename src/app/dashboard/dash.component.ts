@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { Observable, Subscription } from "rxjs";
+import { Observable } from "rxjs";
 
 import { CardOptions } from "../core/models/card";
 import { Customer } from "../core/models/customer";
-import { DashService } from "./service/dash.service";
+import { DashboardService } from "./service/dashboard.service";
 
 @Component({
   selector: "ctm-dash",
@@ -18,7 +18,7 @@ export class DashComponent implements OnInit {
 
   public cards$: Observable<Customer[]>;
 
-  constructor(private readonly _service: DashService) {}
+  constructor(private readonly _service: DashboardService) {}
 
   ngOnInit(): void {
     this.listCustomers();

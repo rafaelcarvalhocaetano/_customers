@@ -9,10 +9,10 @@ import {
 
 @Component({
   selector: "ctm-cards",
-  templateUrl: "./cards.component.html",
-  styleUrls: ["./cards.component.scss"],
+  templateUrl: "./card.component.html",
+  styleUrls: ["./card.component.scss"],
 })
-export class CardsComponent {
+export class CardComponent {
   @Input() card = {
     id: null,
     color: null,
