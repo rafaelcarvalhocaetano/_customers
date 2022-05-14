@@ -1,7 +1,6 @@
-@import "../../../../assets/styles/colors";
 .sidenav {
   height: 100vh;
-  background-color: $side_nav;
+  background-color: var(--background);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -17,18 +16,18 @@
       a {
         width: 100%;
         padding: 20px;
-        color: $icon_primary;
+        color: var(--icon-color);
         text-align: center;
         i {
           font-size: 20px;
         }
         &:hover {
-          color: $write;
+          color: var(--light);
         }
       }
       .active {
-        color: $write;
-        background-color: rgba(255, 255, 255, 0.075);
+        color: var(--light);
+        background-color: var(--secondary-grey);
       }
     }
   }
@@ -39,11 +38,11 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    color: $write;
+    color: var(--light);
     font-size: 25px;
     i {
       &:hover {
-        color: $write;
+        color: var(--light);
       }
     }
   }

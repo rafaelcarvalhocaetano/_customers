@@ -1,7 +1,29 @@
-$primary: #1c1b21;
-$icon_primary: #99999c;
-$side_nav: #2a2931;
-$card: #27262e;
-$border_card: #3c3c3dbe;
-$font_color: #f9f8fa;
-$write: #fff;
+:root {
+  --primary: #1c1b21;
+
+  --icon-color: #99999c;
+
+  --font-color: #f9f8fa;
+
+  --background: #2a2931;
+
+  --card: #27262e;
+
+  --border_card: #3c3c3dbe;
+
+  --secondary-grey: rgba(255, 255, 255, 0.075);
+
+  --secondary: #5260ff;
+
+  --tertiary: #5260ff;
+
+  --success: #2dd36f;
+
+  --warning: #ffc409;
+
+  --danger: #eb445a;
+
+  --medium: #92949c;
+
+  --light: #f4f5f8;
+}

@@ -3,27 +3,27 @@
 .card {
   width: 300px;
   height: 320px;
-  background-color: $card;
+  background-color: var(--card);
   display: flex;
   border-radius: 3px;
   position: relative;
   .card-left {
     width: 10px;
     height: 100%;
-    background-color: $border_card;
+    background-color: var(--border_card);
     border-radius: 3px 0 0 3px;
     p {
       margin-top: 20px;
       height: 40px;
       border-radius: 0 2px 2px 0;
       &.yellow {
-        background-color: yellow;
+        background-color: var(--warning);
       }
       &.blue {
-        background-color: rgb(50, 50, 219);
+        background-color: var(--secondary);
       }
       &.red {
-        background-color: #ec2f16;
+        background-color: var(--danger);
       }
     }
   }
@@ -40,25 +40,25 @@
       p {
         font-size: 24px;
         font-weight: bold;
-        color: $font_color;
+        color: var(--font-color);
         text-align: center;
         letter-spacing: 5px;
       }
       .btn-action {
         border: none;
         background-color: transparent;
-        color: $font_color;
+        color: var(--font-color);
         cursor: pointer;
         font-size: 18px;
         &:focus {
           outline: none;
         }
-        color: $icon_primary;
+        color: var(--icon-color);
       }
     }
     .card-footer {
       .name {
-        color: $font_color;
+        color: var(--font-color);
         opacity: 0.5;
         font-weight: 600;
         font-size: 24px;
@@ -68,7 +68,7 @@
         margin-top: 15px;
         font-size: 16px;
         font-weight: 600;
-        color: $font_color;
+        color: var(--font-color);
         letter-spacing: 1px;
       }
     }
@@ -92,19 +92,19 @@
       flex-direction: column;
       li {
         cursor: pointer;
-        color: $font_color;
+        color: var(--font-color);
         a {
           padding: 10px;
           p {
             font-size: 16px;
             font-weight: bold;
-            color: $font_color;
+            color: var(--font-color);
             text-align: center;
             letter-spacing: 5px;
           }
         }
         &:hover {
-          background-color: $card;
+          background-color: var(--card);
         }
       }
     }

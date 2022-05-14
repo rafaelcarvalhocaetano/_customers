@@ -4,7 +4,7 @@
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px;
-  color: $side_nav;
+  color: var(--background);
 }
 
 .modal-content {
@@ -16,7 +16,7 @@
   right: 0;
   position: absolute;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.527);
+  background-color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +27,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #fff;
+    background-color: var(--light);
     .options {
       padding: 0 20px;
       box-sizing: border-box;
@@ -38,12 +38,12 @@
       margin-top: 20px;
       .title {
         font-size: 24px;
-        color: $side_nav;
+        color: var(--primary);
       }
       .btn-closed {
         border: none;
         background-color: transparent;
-        color: $card;
+        color: var(--card);
         font-size: 18px;
         cursor: pointer;
         &:focus {
@@ -63,7 +63,7 @@
           @include label();
         }
         input {
-          border: 1px solid $border_card;
+          border: 1px solid var(--border_card);
           padding: 0 5px;
           border-radius: 3px;
           height: 50px;
@@ -94,7 +94,7 @@
         font-size: 14px;
         font-weight: bold;
         cursor: pointer;
-        color: $side_nav;
+        color: var(--background);
         &:focus {
           outline: none;
         }

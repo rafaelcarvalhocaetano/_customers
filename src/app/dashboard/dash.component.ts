@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-
 import { CardOptions } from "./models/card";
+
 import { Customer } from "./models/customer";
 import { DashboardService } from "./service/dashboard.service";
 

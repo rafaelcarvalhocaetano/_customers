@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from "@angular/core";
 
 @Component({
-  selector: "ctm-dash-header",
+  selector: "ctm-header",
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.scss"],
 })

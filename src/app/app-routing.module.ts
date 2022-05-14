@@ -4,18 +4,13 @@ import { Routes, RouterModule } from "@angular/router";
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "login",
+    redirectTo: "dashboard",
     pathMatch: "prefix",
   },
   {
     path: "dashboard",
     loadChildren: () =>
       import("./dashboard/dash.module").then((dash) => dash.DashModule),
-  },
-  {
-    path: "login",
-    loadChildren: () =>
-      import("./login/login.module").then((dash) => dash.LoginModule),
   },
 ];
 
