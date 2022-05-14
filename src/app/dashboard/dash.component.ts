@@ -21,6 +21,9 @@ export class DashComponent implements OnInit {
   constructor(private readonly _service: DashboardService) {}
 
   ngOnInit(): void {
+    this._service.getAlbuns().subscribe((resp) => {
+      console.log("resp ", resp);
+    });
     this.listCustomers();
   }
 
