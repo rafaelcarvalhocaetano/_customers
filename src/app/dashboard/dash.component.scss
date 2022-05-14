@@ -1,12 +1,12 @@
-$primary: #1C1B21;
+$primary: #1c1b21;
 $icon_primary: #4b4a52;
 $side_nav: #2a2931;
 $card: #27262e;
 $border_card: #2b2a31;
 $font_color: #f9f8fa;
-$write: #FFF;
-@import '../../assets/styles/colors';
-@import '../../assets/styles/mixis';
+$write: #fff;
+@import "../../assets/styles/colors";
+@import "../../assets/styles/mixis";
 
 .dash-container {
   width: 100%;
@@ -14,23 +14,24 @@ $write: #FFF;
   background-color: $primary;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   .header {
-    width: 92%;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px 6%;
   }
   .dash {
-    margin: 20px 0 0 50px;
-    height: 80vh;
+    height: 100%;
+    box-sizing: border-box;
     overflow-x: auto;
+    @include scroolStyle();
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: end;
-    @include scroolStyle();
+    padding: 20px 3%;
     .cards {
       display: flex;
-      margin: 10px 20px 0 0;
+      &:nth-child(n + 1) {
+        margin: 20px;
+      }
     }
   }
 }
@@ -39,10 +40,6 @@ $write: #FFF;
   .dash-container {
     .dash {
       justify-content: center;
-      .cards {
-        display: flex;
-        margin: 20px 15px 20px 0;
-      }
     }
   }
 }

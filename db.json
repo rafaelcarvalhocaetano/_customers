@@ -1,22 +1,74 @@
 {
   "dashboard": [
     {
-      "id": "5e24b538b61f9859bf94f10e",
-      "name": "Rafael 1",
-      "firstName": "Model DB",
-      "phone": "(55) 11 91331 7777",
-      "email": "ra@gmail.com",
-      "user": "client",
-      "colorId": 2
-    },
-    {
-      "id": "5e24b538b61f9859bf94f10e",
+      "id": 2,
       "name": "Rafael 2",
       "firstName": "Carvalho Caetano",
       "phone": "(55) 11 91111 7777",
       "email": "rafa@gmail.com",
-      "user": "lead",
-      "colorId": 1
+      "client": true,
+      "lead": false,
+      "color": 2
+    },
+    {
+      "id": 2,
+      "name": "Rafael 2",
+      "firstName": "Carvalho Caetano",
+      "phone": "(55) 11 91111 7777",
+      "email": "rafa@gmail.com",
+      "client": true,
+      "lead": false,
+      "color": 1
+    },
+    {
+      "id": 2,
+      "name": "Rafael 2",
+      "firstName": "Carvalho Caetano",
+      "phone": "(55) 11 91111 7777",
+      "email": "rafa@gmail.com",
+      "client": true,
+      "lead": false,
+      "color": 2
+    },
+    {
+      "id": 2,
+      "name": "Rafael 2",
+      "firstName": "Carvalho Caetano",
+      "phone": "(55) 11 91111 7777",
+      "email": "rafa@gmail.com",
+      "client": true,
+      "lead": false,
+      "color": 3
+    },
+    {
+      "id": 2,
+      "name": "Rafael 2",
+      "firstName": "Carvalho Caetano",
+      "phone": "(55) 11 91111 7777",
+      "email": "rafa@gmail.com",
+      "client": true,
+      "lead": false,
+      "color": 2
+    },
+    {
+      "id": 2,
+      "name": "Rafael 2",
+      "firstName": "Carvalho Caetano",
+      "phone": "(55) 11 91111 7777",
+      "email": "rafa@gmail.com",
+      "client": true,
+      "lead": false,
+      "color": 1
+    },
+    {
+      "id": 2,
+      "name": "Rafael 2",
+      "firstName": "Carvalho Caetano",
+      "phone": "(55) 11 91111 7777",
+      "email": "rafa@gmail.com",
+      "client": true,
+      "lead": false,
+      "color": 2
     }
   ],
   "login": [
@@ -26,6 +78,40 @@
       "email": "rapha.pse@gmail",
       "uuid": "8a0c8921-90b2-44c1-81a4-d021cdfb006f",
       "role": "admin"
+    }
+  ],
+  "albuns": [
+    {
+      "id": 1,
+      "name": "A",
+      "photo_id": 1
+    },
+    {
+      "id": 2,
+      "name": "B",
+      "photo_id": 2
+    },
+    {
+      "id": 3,
+      "name": "C",
+      "photo_id": 3
+    }
+  ],
+  "photos": [
+    {
+      "id": 1,
+      "name": "A",
+      "url": "https://odia.ig.com.br/_midias/jpg/2019/01/15/mia10-9308889.jpg"
+    },
+    {
+      "id": 2,
+      "name": "A",
+      "url": "https://odia.ig.com.br/_midias/jpg/2019/01/15/mia10-9308889.jpg"
+    },
+    {
+      "id": 3,
+      "name": "A",
+      "url": "https://odia.ig.com.br/_midias/jpg/2019/01/15/mia10-9308889.jpg"
     }
   ]
 }

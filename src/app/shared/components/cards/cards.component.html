@@ -1,10 +1,17 @@
 <div class="card">
   <div class="card-left">
-    <p [ngClass]="{'clr': card.colorId === 1}"></p>
+    <p
+      [ngClass]="{
+        yellow: card.color === 1,
+        blue: card.color === 2,
+        red: card.color === 3
+      }"
+    ></p>
   </div>
+
   <div class="card-body">
     <div class="item-menu">
-      <p>{{ card.user.toUpperCase() }}</p>
+      <p>{{ typeClient() }}</p>
       <button class="btn-action" (click)="openModal()">
         <i class="fas fa-ellipsis-h"></i>
       </button>
@@ -17,8 +24,15 @@
 
   <div class="modal" *ngIf="showModal">
     <ul *ngFor="let action of actions">
-      <li (click)="clickEmitter.emit({type: action.id, id: card.id}); showModal = false">
-        <p>{{ action.action }}</p>
+      <li>
+        <a
+          (click)="
+            clickEmitter.emit({ type: action.id, id: card.id });
+            showModal = false
+          "
+        >
+          <p>{{ action.action }}</p>
+        </a>
       </li>
     </ul>
   </div>

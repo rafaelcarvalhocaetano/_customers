@@ -1,8 +1,10 @@
 export interface Customer {
-  id: string;
+  id: number;
   name: string;
   firstName: string;
+  color: number;
   phone: string;
   email: string;
-  user: string;
+  lead: boolean;
+  client: boolean;
 }

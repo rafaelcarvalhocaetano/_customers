@@ -1,21 +1,15 @@
 <div class="sidenav">
-  <div class="icon-logo">
+  <button class="items-plus">
     <i class="far fa-dot-circle"></i>
-  </div>
+  </button>
   <ul class="ctm-list">
     <li *ngFor="let item of listMenu">
-      <a [routerLink]="item.router" routerLinkActive="icc">
+      <a [routerLink]="item.router" routerLinkActive="active">
         <i [class]="item.icon"></i>
       </a>
     </li>
   </ul>
-  <div class="items-plus">
+  <button class="items-plus">
     <i class="fas fa-cloud-download-alt"></i>
-    <button class="btn btn-add" (click)="openModal = true">
-      <i class="fas fa-plus"></i>
-    </button>
-  </div>
-</div>
-<div *ngIf="openModal">
-  <ctm-modal [open]="openModal" [id]="null" (senClosed)="openModal = $event"></ctm-modal>
+  </button>
 </div>

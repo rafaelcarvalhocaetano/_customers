@@ -1,16 +1,15 @@
 <div class="dash-container" *ngIf="loader">
   <div class="loader"></div>
 </div>
+
 <div class="dash-container" *ngIf="!loader">
   <div class="header">
-    <ctm-dash-header></ctm-dash-header>
+    <ctm-dash-header (onAction)="onAction($event)"></ctm-dash-header>
   </div>
   <div class="dash">
-    <div class="cards" *ngFor="let card of cards">
+    <div class="cards" *ngFor="let card of this.cards$ | async">
       <ctm-cards [card]="card" (clickEmitter)="clickEvent($event)"></ctm-cards>
     </div>
-  </div> 
+  </div>
 </div>
-<div *ngIf="openEditCard">
-  <ctm-modal [open]="openEditCard" [id]="id" (senClosed)="openEditCard = $event"></ctm-modal>
-</div>
+<ctm-modal [open]="openModal" (value)="receiveValue($event)"></ctm-modal>

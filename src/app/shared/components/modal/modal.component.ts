@@ -1,80 +1,75 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
-import { DashService } from 'src/app/core/services/dash-service/dash.service';
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'ctm-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  selector: "ctm-modal",
+  templateUrl: "./modal.component.html",
+  styleUrls: ["./modal.component.scss"],
 })
 export class ModalComponent implements OnInit {
-
   @Input()
   public open = false;
 
-  @Input() public id: string;
+  @Input()
+  public formValue = {
+    id: null,
+    name: null,
+    color: null,
+    firstName: null,
+    phone: null,
+    email: null,
+    client: null,
+    lead: null,
+  };
+
+  public senClosed = false;
 
   @Output()
-  public senClosed = new EventEmitter<boolean>();
+  public value = new EventEmitter<any>();
 
   public form: FormGroup;
 
-  public options = [
-    { description: 'Lead'},
-    { description: 'Client'}
-  ];
-
-  constructor(
-    private formBuilder: FormBuilder,
-    private service: DashService
-  ) { }
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.createForm();
-    this.updateForm();
-  }
-
-  public createForm() {
     this.form = this.formBuilder.group({
-      id: [null],
-      name: [null],
-      colorId: [null],
-      firstName: [null],
-      phone: [null],
-      email: [null, [Validators.email]],
-      user: [null]
+      id: [this.formValue.id && null, [Validators.required]],
+      name: [this.formValue.name && null, [Validators.required]],
+      color: [this.formValue.color && null, [Validators.required]],
+      firstName: [this.formValue.firstName && null, [Validators.required]],
+      phone: [this.formValue.phone && null, [Validators.required]],
+      email: [
+        this.formValue.email && null,
+        [Validators.email, Validators.required],
+      ],
+      client: [this.formValue.client && null, [Validators.required]],
+      lead: [this.formValue.lead && null, [Validators.required]],
     });
   }
 
-  private updateForm() {
-    if (this.id) {
-      this.service.findById(this.id).subscribe(resp => {
-        this.form.patchValue({
-          id: resp.id,
-          name: resp.name,
-          colorId: resp.colorId,
-          firstName: resp.firstName,
-          phone: resp.phone,
-          email: resp.email,
-          user: resp.user.toLowerCase()
-        });
-      });
-    }
-  }
-
   public submitForm() {
-    if (this.id) {
-      this.service.updateCustomer(this.form.value).subscribe(() => {
-        this.senClosed.emit(false);
-        this.service.findALlCustomer().subscribe(x => this.service.sendCustomer(x));
-      });
-    } else {
-      this.service.createCustomer(this.form.value).subscribe(() => {
-        this.senClosed.emit(false);
-        this.service.findALlCustomer().subscribe(x => this.service.sendCustomer(x));
+    console.log(this.form.value);
+    if (this.form.get("email").valid) {
+      if (this.form.get("lead").value && this.form.get("client").value) {
+        this.form.get("color").setValue(1);
+      }
+      if (this.form.get("lead").value && !this.form.get("client").value) {
+        this.form.get("color").setValue(2);
+      }
+      if (!this.form.get("lead").value && this.form.get("client").value) {
+        this.form.get("color").setValue(3);
+      }
+      this.value.emit({
+        value: this.form.value,
+        status: false,
       });
     }
   }
 
+  public closeModal(): void {
+    this.value.emit({
+      value: this.form.value,
+      status: false,
+    });
+  }
 }

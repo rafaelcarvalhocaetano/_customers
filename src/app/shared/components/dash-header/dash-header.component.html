@@ -1,29 +1,10 @@
-<div class="dash-header">
-  <div class="select-options">
-    <h1 class="dash-title">Customers</h1>
-    <ul class="items">
-
-      <li class="filter">
-        <a>
-          <i class="fas fa-sort-amount-up-alt"></i>
-          <!-- <i class="fas fa-sort-amount-down-alt"></i> -->
-        </a>
-      </li>
-
-      <li class="filter-options">
-        <a class="items-select">
-          <i class="fas fa-cog"></i>
-        </a>
-        <a class="items-select">1</a>
-        <a class="items-select">2</a>
-      </li>
-
-      <li class="filter-search">
-        <a>
-          <i class="fas fa-search"></i>
-        </a>
-      </li>
-
-    </ul>
-  </div>
+<div class="select-options">
+  <h1 class="dash-title">Customers</h1>
+  <ul class="items">
+    <li class="filter" *ngFor="let item of listActionDashboard; let i = index">
+      <a (click)="selectAction(i)">
+        <i class="{{ item }}"></i>
+      </a>
+    </li>
+  </ul>
 </div>

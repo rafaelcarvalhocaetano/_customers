@@ -1,18 +1,25 @@
-import { Component, Input, EventEmitter, Output, HostListener, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  EventEmitter,
+  Output,
+  HostListener,
+  ElementRef,
+} from "@angular/core";
 
 @Component({
-  selector: 'ctm-cards',
-  templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.scss']
+  selector: "ctm-cards",
+  templateUrl: "./cards.component.html",
+  styleUrls: ["./cards.component.scss"],
 })
 export class CardsComponent {
-
   @Input() card = {
     id: null,
     color: null,
-    user: null,
+    client: false,
+    lead: false,
     name: null,
-    firstName: null
+    firstName: null,
   };
 
   @Output()
@@ -24,19 +31,19 @@ export class CardsComponent {
   public actions = [
     {
       id: 1,
-      action: 'Update'
+      action: "Update",
     },
     {
       id: 2,
-      action: 'Delete'
+      action: "Delete",
     },
     {
       id: 3,
-      action: 'Visited'
-    }
+      action: "Visited",
+    },
   ];
 
-  @HostListener('document:click', ['$event'])
+  @HostListener("document:click", ["$event"])
   onClick(ev) {
     if (this.showModal) {
       if (!this.eRef.nativeElement.contains(ev.target)) {
@@ -46,10 +53,21 @@ export class CardsComponent {
     }
   }
 
-  constructor(private eRef: ElementRef) { }
+  constructor(private eRef: ElementRef) {}
 
-  public openModal() {
+  public openModal(): void {
     this.showModal = !this.showModal;
   }
 
+  public typeClient(): string {
+    if (this.card.lead && this.card.client) {
+      return "Super Client";
+    }
+    if (this.card.lead && !this.card.client) {
+      return "Lead";
+    }
+    if (!this.card.lead && this.card.client) {
+      return "Client";
+    }
+  }
 }

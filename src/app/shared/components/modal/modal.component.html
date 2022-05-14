@@ -1,46 +1,80 @@
 <div class="modal-content" *ngIf="open">
   <form class="modal-container" [formGroup]="form">
-
     <div class="options">
-      <h1 class="title">Registration Form</h1>
-      <button class="btn-closed" (click)="senClosed.emit(false); open = false">
+      <h1 class="title">
+        {{ this.form.get("id").value ? "Edit Customer" : "Create Customer" }}
+      </h1>
+      <button class="btn-closed" (click)="closeModal()">
         <i class="far fa-times-circle"></i>
       </button>
     </div>
-    
+
     <div class="form-container">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" formControlName="name" placeholder="Your Name">
+        <input
+          type="text"
+          name="name"
+          id="name"
+          formControlName="name"
+          placeholder="Your Name"
+        />
       </div>
       <div class="form-group">
         <label for="firstName">First Name</label>
-        <input type="firstName" name="firstName" id="firstName" formControlName="firstName" placeholder="Your First Name">
+        <input
+          type="firstName"
+          name="firstName"
+          id="firstName"
+          formControlName="firstName"
+          placeholder="Your First Name"
+        />
       </div>
       <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="tel" name="phone" id="phone" formControlName="phone" placeholder="(55) 11 95555 44444">
+        <input
+          type="tel"
+          name="phone"
+          id="phone"
+          formControlName="phone"
+          placeholder="(55) 11 95555 44444"
+        />
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" formControlName="email" placeholder="email@gmail.com">
+        <input
+          type="email"
+          name="email"
+          id="email"
+          formControlName="email"
+          placeholder="email@gmail.com"
+        />
       </div>
       <div class="form-selected">
-        <div *ngFor="let item of options">
-          <div class="client">
-            <label class="container" for="{{item.description}}">
-              {{ item.description }}
-              <input type="radio" name="radio" id="{{item.description}}" [value]="item.description.toLowerCase()" formControlName="user">
-              <span class="checkmark"></span>
-            </label>
-          </div>
-        </div>
+        <label for="client">
+          Client
+          <input
+            id="client"
+            name="client"
+            type="checkbox"
+            formControlName="client"
+          />
+        </label>
+
+        <label for="lead">
+          Lead
+          <input id="lead" name="lead" type="checkbox" formControlName="lead" />
+        </label>
       </div>
     </div>
-   
+
     <div class="submited">
-      <button type="submit" class="btn-submit" (click)="submitForm()">Save</button>
-      <button type="button" class="btn-submit" (click)="senClosed.emit(false); open = false">Cancel</button>
+      <button type="submit" class="btn-submit" (click)="submitForm()">
+        Save
+      </button>
+      <button type="button" class="btn-submit" (click)="closeModal()">
+        Cancel
+      </button>
     </div>
   </form>
 </div>
