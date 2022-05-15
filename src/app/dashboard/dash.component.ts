@@ -1,13 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
+import { customerStart } from './store/dashboard.actions';
+import { selectCustomer } from './store/dashboard.selectors';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
-import { CardOptions } from "./models/card";
-import { Customer } from "./models/customer";
+import { AppState } from '../manager-state/app.state';
+import { CardOptions } from './models/card';
+import { Customer } from './models/customer';
 
 @Component({
-  selector: "ctm-dash",
-  templateUrl: "./dash.component.html",
-  styleUrls: ["./dash.component.scss"],
+  selector: 'ctm-dash',
+  templateUrl: './dash.component.html',
+  styleUrls: ['./dash.component.scss'],
 })
 export class DashComponent implements OnInit {
   public openModal = false;
@@ -17,7 +21,7 @@ export class DashComponent implements OnInit {
 
   public cards$: Observable<Customer[]>;
 
-  constructor() {}
+  constructor(private readonly _store: Store<AppState>) {}
 
   ngOnInit(): void {
     // this._service.getAlbuns().subscribe((resp) => {
@@ -40,16 +44,13 @@ export class DashComponent implements OnInit {
   }
 
   private listCustomers() {
-    // this.cards$ = this._service.getCustomer();
-    // this.cards$ = this.store.select(selectCustomers);
-    // this.store.select(selectCustomers).subscribe((x) => {
-    //   console.log("🚀 ~ x", x);
-    // });
+    this._store.dispatch(customerStart());
+    this.cards$ = this._store.select(selectCustomer);
     this.loader = false;
   }
 
   public onAction(value: string): void {
-    if (value === "create") {
+    if (value === 'create') {
       this.openModal = true;
     }
   }

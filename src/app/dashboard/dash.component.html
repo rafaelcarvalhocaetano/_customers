@@ -7,7 +7,7 @@
     <ctm-header (action)="onAction($event)"></ctm-header>
   </div>
   <div class="dash">
-    <div class="cards" *ngFor="let card of this.cards$ | async">
+    <div class="cards" *ngFor="let card of cards$ | async">
       <ctm-cards [card]="card" (clickEmitter)="clickEvent($event)"></ctm-cards>
     </div>
   </div>

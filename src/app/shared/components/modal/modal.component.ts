@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: "ctm-modal",
-  templateUrl: "./modal.component.html",
-  styleUrls: ["./modal.component.scss"],
+  selector: 'ctm-modal',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent implements OnInit {
   @Input()
@@ -49,15 +49,15 @@ export class ModalComponent implements OnInit {
 
   public submitForm() {
     console.log(this.form.value);
-    if (this.form.get("email").valid) {
-      if (this.form.get("lead").value && this.form.get("client").value) {
-        this.form.get("color").setValue(1);
+    if (this.form.get('email').valid) {
+      if (this.form.get('lead').value && this.form.get('client').value) {
+        this.form.get('color').setValue(1);
       }
-      if (this.form.get("lead").value && !this.form.get("client").value) {
-        this.form.get("color").setValue(2);
+      if (this.form.get('lead').value && !this.form.get('client').value) {
+        this.form.get('color').setValue(2);
       }
-      if (!this.form.get("lead").value && this.form.get("client").value) {
-        this.form.get("color").setValue(3);
+      if (!this.form.get('lead').value && this.form.get('client').value) {
+        this.form.get('color').setValue(3);
       }
       this.value.emit({
         value: this.form.value,

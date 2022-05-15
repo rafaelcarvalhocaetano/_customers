@@ -1,16 +1,16 @@
-import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: "",
-    redirectTo: "dashboard",
-    pathMatch: "prefix",
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'prefix',
   },
   {
-    path: "dashboard",
+    path: 'dashboard',
     loadChildren: () =>
-      import("./dashboard/dash.module").then((dash) => dash.DashModule),
+      import('./dashboard/dash.module').then((dash) => dash.DashModule),
   },
 ];
 
